@@ -2,7 +2,7 @@ import { IPlayerCard } from "../types/types";
 import styles from "../pages/App.module.css";
 
 function PlayerCard({ name, photo_url, stats }: IPlayerCard) {
-  const SHOW_STATS = false;
+  const SHOW_STATS = true;
 
   return (
     <div className={styles["player-card__container"]}>

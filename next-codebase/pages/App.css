@@ -20,6 +20,10 @@ body {
   font-family: sans-serif;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 img {
   width: 100%;
 }
