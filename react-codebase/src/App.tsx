@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CARD_DATA, { IPlayerCard } from "./PlayerData";
 import "./App.css";
 
-const SHOW_STATS = false;
+const SHOW_STATS = true;
 
 type CardGridProps = {
   players: IPlayerCard[];
@@ -54,12 +54,49 @@ function PlayerCard({ name, photo_url, stats }: IPlayerCard) {
 }
 
 function CardGrid({ players }: CardGridProps) {
+  const GET_NUM_COLS = () => {
+    if (window.innerWidth < 550) return 1;
+    if (window.innerWidth < 800) return 2;
+    return 3;
+  };
+  const [numCols, setNumCols] = useState(GET_NUM_COLS());
+  const PLAYERS_COPY = [...players];
+  const NUM_PLAYERS_IN_COL = Math.ceil(players.length / numCols);
+
+  const playerCols: IPlayerCard[][] = [];
+  for (let i = 0; i < numCols; i++) {
+    playerCols.push(PLAYERS_COPY.splice(0, NUM_PLAYERS_IN_COL));
+  }
+
+  useEffect(() => {
+    const setter = () => {
+      setNumCols(GET_NUM_COLS());
+    };
+
+    setter();
+    window.addEventListener("resize", () => setter());
+    return () => {
+      window.removeEventListener("resize", () => setter());
+    };
+  }, []);
+
   return (
-    <>
-      {players.map((player) => (
-        <PlayerCard {...player} />
+    <div
+      style={{
+        columnGap: 20,
+        display: "grid",
+        gridTemplateColumns: `repeat(${numCols}, 1fr)`,
+        padding: 10,
+      }}
+    >
+      {playerCols.map((col, idx) => (
+        <div className="player-col" key={idx}>
+          {col.map((player) => (
+            <PlayerCard key={player.name} {...player} />
+          ))}
+        </div>
       ))}
-    </>
+    </div>
   );
 }
 

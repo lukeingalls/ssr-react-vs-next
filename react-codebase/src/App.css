@@ -20,6 +20,10 @@ body {
   font-family: sans-serif;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 img {
   width: 100%;
 }
@@ -49,14 +53,18 @@ tbody tr:nth-child(odd) td {
   width: 100%;
 }
 
+.player-col {
+  overflow: hidden;
+}
+
 .player-card__container {
   background-color: var(--mint-cream);
   border-radius: 10px;
-  display: inline-block;
-  max-width: 300px;
-  margin: 10px 10px;
+  height: min-content;
+  margin-bottom: 24px;
   padding: 10px;
-  transition: .2s
+  transition: .2s;
+  width: 100%;
 }
 
 .player-card__container:hover {
@@ -68,6 +76,5 @@ tbody tr:nth-child(odd) td {
 .player-name {
   font-weight: 400;
   margin: 10px 0;
-
   text-align: center;
 }
