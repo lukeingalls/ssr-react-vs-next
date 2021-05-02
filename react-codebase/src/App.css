@@ -1,0 +1,73 @@
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --rich-black: #070707;
+  --charcoal: #40434e;
+  --lilac: #C297B8;
+  --pink-lace: #FDCFF3;
+  --middle-purple: #DE90BE;
+  --mint-cream: #F7FFF7;
+  --burnished-brown: #AB8476;
+  --medium-turquoise: #4ECDC4;
+}
+
+body {
+  background-color: var(--charcoal);
+  font-family: sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border: solid 1px var(--charcoal);
+  padding: 3px;
+  width: 100%;
+}
+
+tr {
+  border-bottom: sold 1px var(--charcoal);
+}
+
+tbody tr:nth-child(odd),
+tbody tr:nth-child(odd) td {
+  background-color: rgb(207, 207, 209);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.player-card__container {
+  background-color: var(--mint-cream);
+  border-radius: 10px;
+  display: inline-block;
+  max-width: 300px;
+  margin: 10px 10px;
+  padding: 10px;
+  transition: .2s
+}
+
+.player-card__container:hover {
+  box-shadow: 0 0 5px 5px #bbb;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.player-name {
+  font-weight: 400;
+  margin: 10px 0;
+
+  text-align: center;
+}
