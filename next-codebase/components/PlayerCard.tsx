@@ -13,15 +13,10 @@ function PlayerCard({ name, photo_url, stats }: IPlayerCard) {
           <thead>
             <tr>
               <td>Season</td>
-              {/* <td>GP</td> */}
-              {/* <td>GS</td> */}
-              {/* <td>MIN</td> */}
               <td>REB</td>
               <td>AST</td>
               <td>BLK</td>
               <td>STL</td>
-              {/* <td>PF</td> */}
-              {/* <td>TO</td> */}
               <td>PTS</td>
             </tr>
           </thead>
@@ -29,15 +24,10 @@ function PlayerCard({ name, photo_url, stats }: IPlayerCard) {
             {stats.map((year) => (
               <tr>
                 <td>{year.season}</td>
-                {/* <td>{year.games_played}</td> */}
-                {/* <td>{year.games_started}</td> */}
-                {/* <td>{year.min}</td> */}
                 <td>{year.rebounds}</td>
                 <td>{year.assists}</td>
                 <td>{year.blocks}</td>
                 <td>{year.steals}</td>
-                {/* <td>{year.fouls}</td> */}
-                {/* <td>{year.turnovers}</td> */}
                 <td>{year.points}</td>
               </tr>
             ))}
